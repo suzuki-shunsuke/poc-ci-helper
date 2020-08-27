@@ -24,12 +24,12 @@ jobs:
           command: bash ci/update-pr.sh
   hello:
     docker:
-      - image: plugins/git
+      - image: alpine:3.12.0
     steps:
       - run:
           name: install tools
           command: |
-            apk add git bash openssh
+            apk add git bash openssh ca-certificates
       - checkout
       - run:
           name: hello
