@@ -1,0 +1,31 @@
+version: 2.1
+workflows:
+  update-pr:
+    jobs:
+      - update-pr:
+          filters:
+            branches:
+              only: /master/
+  build:
+    jobs:
+      - hello
+jobs:
+  update-pr:
+    docker:
+      - image: alpine:3.12.0
+    steps:
+      - run:
+          name: install tools
+          command: |
+            apk add git bash
+      - checkout
+      - run:
+          name: update pr
+          command: bash ci/update-pr.sh
+  hello:
+    docker:
+      - image: alpine:3.12.0
+    steps:
+      - run:
+          name: hello
+          command: echo hello
