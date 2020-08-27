@@ -27,5 +27,10 @@ jobs:
       - image: alpine:3.12.0
     steps:
       - run:
+          name: install tools
+          command: |
+            apk add git bash
+      - checkout
+      - run:
           name: hello
-          command: echo hello
+          command: bash ci/hello.sh
