@@ -29,7 +29,7 @@ jobs:
       - run:
           name: install tools
           command: |
-            apk add git bash openssh ca-certificates
+            apk add git bash openssh ca-certificates perl
       - checkout
       - run:
           name: hello
