@@ -16,8 +16,7 @@ jobs:
     steps:
       - run:
           name: install tools
-          command: |
-            apk add git bash
+          command: apk add bash
       - checkout
       - run:
           name: update pr
@@ -26,6 +25,9 @@ jobs:
     docker:
       - image: plugins/git
     steps:
+      - run:
+          name: install tools
+          command: apk add bash
       - checkout
       - run:
           name: hello
