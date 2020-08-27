@@ -9,6 +9,6 @@ git config user.email ci-helper@example.com
 
 git fetch origin master --prune
 
-if ! git merge origin/master; then
+if ! git merge --no-edit origin/master; then
   exit 1
 fi
