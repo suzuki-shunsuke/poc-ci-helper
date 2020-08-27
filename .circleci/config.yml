@@ -24,7 +24,7 @@ jobs:
           command: bash ci/update-pr.sh
   hello:
     docker:
-      - image: alpine:3.12.0
+      - image: plugins/git
     steps:
       - run:
           name: install tools
