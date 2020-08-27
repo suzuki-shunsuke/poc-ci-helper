@@ -29,7 +29,10 @@ jobs:
       - run:
           name: install tools
           command: |
-            apk add git bash openssh ca-certificates perl curl
+            apk add --no-cache bash ca-certificates
+            apk add --no-cache perl curl
+            apk add --no-cache openssh
+            apk add --no-cache git
       - checkout
       - run:
           name: hello
