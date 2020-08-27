@@ -12,7 +12,7 @@ workflows:
 jobs:
   update-pr:
     docker:
-      - image: alpine:3.12.0
+      - image: plugins/git
     steps:
       - run:
           name: install tools
@@ -24,15 +24,8 @@ jobs:
           command: bash ci/update-pr.sh
   hello:
     docker:
-      - image: plugins/base
+      - image: plugins/git
     steps:
-      - run:
-          name: install tools
-          command: |
-            apk add --no-cache bash ca-certificates
-            apk add --no-cache perl curl
-            apk add --no-cache openssh
-            apk add --no-cache git
       - checkout
       - run:
           name: hello
